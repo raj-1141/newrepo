@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') { // Defines the "Build" stage
             steps {
-                echo 'Building the application...' // Prints a message to the console
+                echo 'Building the application...' 
+                sh 'ls -ltr'// Prints a message to the console
             }
         }
 
@@ -17,6 +18,7 @@ pipeline {
         stage('Deploy') { // Defines the "Deploy" stage
             steps {
                 echo 'Deploying the application...'
+                sh 'python3 hello.py'
             }
         }
     }
