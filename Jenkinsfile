@@ -25,7 +25,6 @@ pipeline {
         stage('Deploy') { // Defines the "Deploy" stage
             steps {
                 echo 'Deploying the application...'
-                sh 'python3 hello.py'
             }
         }
     }
