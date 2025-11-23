@@ -5,7 +5,6 @@ pipeline {
         stage('Code-Checkout') { // Defines the "Build" stage
             steps {
                 echo 'Checking out the code in Jenkins workspace...' 
-                git branch:'master', credentialsId: 'github-key', url: 'https://github.com/YadneshN/Demo_SL.git'
                 sh 'ls -ltr'// Prints a message to the console
             }
         }
