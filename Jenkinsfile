@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') { // Defines the "Deploy" stage
             steps {
                 echo 'Deploying the application...'
-                sh 'dokcer run -d --name myapp python-app:v1'
+                sh 'docker run -d --name myapp python-app:v1'
             }
         }
 
