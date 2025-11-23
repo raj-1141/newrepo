@@ -26,7 +26,8 @@ pipeline {
         stage('Deploy-Test') { // Defines the "Test" stage
             steps {
                 echo 'Running tests...'
-                sh 'docker ps -a'
+                sh '''docker ps -a
+                docker logs myapp'''
             }
         }
     }
