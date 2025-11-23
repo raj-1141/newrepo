@@ -30,6 +30,15 @@ pipeline {
                 docker logs myapp'''
             }
         }
+
+        stage('Cleanup') { // Defines the "Test" stage
+            steps {
+                echo 'Running cleanup...'
+                sh '''docker ps -a
+                docker rm -f myapp
+                docker ps -a'''
+            }
+        }
     }
 
     post { // Actions to perform after the pipeline completes
