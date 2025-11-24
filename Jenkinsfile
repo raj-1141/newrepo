@@ -4,39 +4,19 @@ pipeline {
     stages {
         stage('Build') { // Defines the "Build" stage
             steps {
-                echo 'Building the application...' 
-                sh 'docker build -t python-app:v1 .' 
+                echo 'Building the application...' // Prints a message to the console
             }
         }
 
-        stage('Build-Test') { // Defines the "Test" stage
+        stage('Test') { // Defines the "Test" stage
             steps {
                 echo 'Running tests...'
-                sh 'docker images'
             }
         }
 
         stage('Deploy') { // Defines the "Deploy" stage
             steps {
                 echo 'Deploying the application...'
-                sh 'docker run -d --name myapp python-app:v1'
-            }
-        }
-
-        stage('Deploy-Test') { // Defines the "Test" stage
-            steps {
-                echo 'Running tests...'
-                sh '''docker ps -a
-                docker logs myapp'''
-            }
-        }
-
-        stage('Cleanup') { // Defines the "Test" stage
-            steps {
-                echo 'Running cleanup...'
-                sh '''docker ps -a
-                docker rm -f myapp
-                docker ps -a'''
             }
         }
     }
